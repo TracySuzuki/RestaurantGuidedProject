@@ -19,6 +19,7 @@
 		FD86695B2272BC0D00CA6D11 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86695A2272BC0D00CA6D11 /* MenuItem.swift */; };
 		FD86695D2273E1CC00CA6D11 /* IntermediaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86695C2273E1CC00CA6D11 /* IntermediaryModels.swift */; };
 		FD86695F2273E30900CA6D11 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86695E2273E30900CA6D11 /* Order.swift */; };
+		FD8669612273EDE000CA6D11 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8669602273EDE000CA6D11 /* MenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FD86695A2272BC0D00CA6D11 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		FD86695C2273E1CC00CA6D11 /* IntermediaryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediaryModels.swift; sourceTree = "<group>"; };
 		FD86695E2273E30900CA6D11 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		FD8669602273EDE000CA6D11 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				FD86695A2272BC0D00CA6D11 /* MenuItem.swift */,
 				FD86695C2273E1CC00CA6D11 /* IntermediaryModels.swift */,
 				FD86695E2273E30900CA6D11 /* Order.swift */,
+				FD8669602273EDE000CA6D11 /* MenuController.swift */,
 				FD8669442272934800CA6D11 /* Main.storyboard */,
 				FD8669472272934C00CA6D11 /* Assets.xcassets */,
 				FD8669492272934C00CA6D11 /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8669612273EDE000CA6D11 /* MenuController.swift in Sources */,
 				FD86695B2272BC0D00CA6D11 /* MenuItem.swift in Sources */,
 				FD8669552272989C00CA6D11 /* MenuTableViewController.swift in Sources */,
 				FD86695922729B8D00CA6D11 /* MenuItemDetailViewController.swift in Sources */,
