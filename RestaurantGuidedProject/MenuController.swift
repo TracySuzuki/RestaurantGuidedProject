@@ -37,7 +37,17 @@ class MenuController {
     //Method to post an order has a collection of menu item IDs, includes also an integer specifying the number of minutes the order will take to prep. For both of those the method needs 2 parameters.
     func submitOrder(forMenuIDs menuIds: [Int], completion: @escaping (Int?) -> Void) {
       let orderURL = baseURL.appendingPathComponent("order")
-        
+        var request = URLRequest(url: orderURL)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let data: [String: [Int]] = ["menuIds": menuIds]
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try? jsonEncoder.encode(data)
+        request.httpBody = jsonData
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+        }
+        task.resume()
     }
     
 }
