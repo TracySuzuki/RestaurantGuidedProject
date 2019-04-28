@@ -9,38 +9,41 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
+    //created an instance of menucontroller to make the appropriate network request in viewdidload. the code will check the argument that comes into the closure to see if it contains data. then the data will pass into a ethod that will set the property and update the interface.
+    let menuController = MenuController()
+    var categories = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        menuController.fetchCategories { (categories) in
+            if let categories = categories {
+                self.updateUI(with: categories)
+                
+            }
+        }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func updateUI(with categories: [String]) {
+        DispatchQueue.main.async {
+            self.categories = categories
+            self.tableView.reloadData()
+            
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return categories.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCellIdentifier", for: indexPath)
+        configure(cell, forItemAt: indexPath)
         return cell
     }
-    */
+    
+    func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        let categoryString = categories[indexPath.row]
+        cell.textLabel?.text = categoryString.capitalized
+    }
 
     /*
     // Override to support conditional editing of the table view.
