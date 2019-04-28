@@ -10,19 +10,29 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
     //string property to hold category data it is an implicity unwrapped optional meaning when an optional is determined and can be assumed to exist thereafter
+    let menuController = MenuController()
+    var menuItems = [MenuItem]()
     var category: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        title = category.capitalized
+        menuController.fetchMenuItems(forCategory: category) {
+            (menuItems) in
+            if let menuItems = menuItems {
+                self.updateUI(with: menuItems)
+                
+            }
+        }
     }
 
-    // MARK: - Table view data source
+    func updateUI(with menuItems: [MenuItem]) {
+        DispatchQueue.main.async {
+            self.menuItems = menuItems
+            self.tableView.reloadData()
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
