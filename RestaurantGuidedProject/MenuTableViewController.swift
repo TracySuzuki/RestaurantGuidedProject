@@ -9,6 +9,8 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
+    //string property to hold category data it is an implicity unwrapped optional meaning when an optional is determined and can be assumed to exist thereafter
+    var category: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()

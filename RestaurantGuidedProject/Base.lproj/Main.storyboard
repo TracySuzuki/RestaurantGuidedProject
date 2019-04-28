@@ -36,7 +36,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="M2p-cc-Rea" kind="show" id="yId-76-ugL"/>
+                                    <segue destination="M2p-cc-Rea" kind="show" identifier="MenuSegue" id="yId-76-ugL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

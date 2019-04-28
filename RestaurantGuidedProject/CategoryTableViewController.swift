@@ -72,22 +72,11 @@ class CategoryTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "MenuSegue" {
+        let menuTableViewController = segue.destination as! MenuTableViewController
+        let index = tableView.indexPathForSelectedRow!.row
+        menuTableViewController.category = categories[index]
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+ }
