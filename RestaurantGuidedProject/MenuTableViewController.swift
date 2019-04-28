@@ -18,7 +18,7 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         
         title = category.capitalized
-        menuController.fetchMenuItems(forCategory: category) {
+        MenuController.shared.fetchMenuItems(forCategory: category) {
             (menuItems) in
             if let menuItems = menuItems {
                 self.updateUI(with: menuItems)

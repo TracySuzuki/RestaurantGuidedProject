@@ -9,6 +9,7 @@
 import Foundation
 //need to request the list from the API. Packing all the n etwork code into single controller. This will reduce the amount of code in the table view controllers and simplify any future updates.
 class MenuController {
+    static let shared = MenuController()
     let baseURL = URL(string: "http://localhost:8090/")!
   
     //a method that has one parameter with a completion closre an array of strings
