@@ -9,6 +9,9 @@
 import UIKit
 
 class MenuItemDetailViewController: UIViewController {
+    //property below holds the menuItem it recieves from the menuTableViewController
+    var menuItem: MenuItem!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
