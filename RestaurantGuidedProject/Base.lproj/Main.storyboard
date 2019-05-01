@@ -55,7 +55,7 @@
         <scene sceneID="X2g-Ta-pXK">
             <objects>
                 <tableViewController id="M2p-cc-Rea" customClass="MenuTableViewController" customModule="RestaurantGuidedProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="22c-Xt-HrK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="22c-Xt-HrK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,13 +105,63 @@
                     <view key="view" contentMode="scaleToFill" id="bSy-Zv-Kva">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="BXa-qO-I3A" userLabel="placeholder">
+                                <rect key="frame" x="16" y="124" width="343" height="167"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hNf-Uz-XXE">
+                                <rect key="frame" x="16" y="299" width="255" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$27.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scP-00-wVk" userLabel="Price Label">
+                                <rect key="frame" x="279" y="299" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="w1P-fG-edZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvn-88-pX2">
+                                <rect key="frame" x="16" y="331" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c6-NR-mKD">
+                                <rect key="frame" x="16" y="596" width="343" height="30"/>
+                                <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                <state key="normal" title="Add To Order">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nvn-88-pX2" firstAttribute="top" secondItem="hNf-Uz-XXE" secondAttribute="bottom" constant="8" id="3vP-oI-yUH"/>
+                            <constraint firstItem="scP-00-wVk" firstAttribute="leading" secondItem="hNf-Uz-XXE" secondAttribute="trailing" constant="8" id="5uE-Yd-gEc"/>
+                            <constraint firstItem="BXa-qO-I3A" firstAttribute="height" secondItem="bSy-Zv-Kva" secondAttribute="height" multiplier="0.25" id="AvL-a9-Rhd"/>
+                            <constraint firstItem="1c6-NR-mKD" firstAttribute="leading" secondItem="bSy-Zv-Kva" secondAttribute="leadingMargin" id="CJY-Pv-hGl"/>
+                            <constraint firstItem="scP-00-wVk" firstAttribute="top" secondItem="BXa-qO-I3A" secondAttribute="bottom" constant="8" id="CVa-Zh-XyE"/>
+                            <constraint firstItem="BXa-qO-I3A" firstAttribute="top" secondItem="ldq-ze-Ozv" secondAttribute="top" constant="8" id="DAO-3c-cBq"/>
+                            <constraint firstItem="Nvn-88-pX2" firstAttribute="trailing" secondItem="bSy-Zv-Kva" secondAttribute="trailingMargin" id="MFO-1Q-7nG"/>
+                            <constraint firstItem="hNf-Uz-XXE" firstAttribute="top" secondItem="BXa-qO-I3A" secondAttribute="bottom" constant="8" id="f67-s5-JcE"/>
+                            <constraint firstItem="1c6-NR-mKD" firstAttribute="bottom" secondItem="ldq-ze-Ozv" secondAttribute="bottom" constant="8" id="hne-kU-lXX"/>
+                            <constraint firstItem="scP-00-wVk" firstAttribute="trailing" secondItem="bSy-Zv-Kva" secondAttribute="trailingMargin" id="joM-gK-dwW"/>
+                            <constraint firstItem="hNf-Uz-XXE" firstAttribute="leading" secondItem="bSy-Zv-Kva" secondAttribute="leadingMargin" id="mrG-fe-ef1"/>
+                            <constraint firstItem="BXa-qO-I3A" firstAttribute="leading" secondItem="bSy-Zv-Kva" secondAttribute="leadingMargin" id="nbm-LE-TeA"/>
+                            <constraint firstItem="Nvn-88-pX2" firstAttribute="leading" secondItem="bSy-Zv-Kva" secondAttribute="leadingMargin" id="ntD-pI-ApC"/>
+                            <constraint firstItem="BXa-qO-I3A" firstAttribute="trailing" secondItem="bSy-Zv-Kva" secondAttribute="trailingMargin" id="sba-4n-826"/>
+                            <constraint firstItem="1c6-NR-mKD" firstAttribute="trailing" secondItem="bSy-Zv-Kva" secondAttribute="trailingMargin" id="uZo-nZ-vzb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ldq-ze-Ozv"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjT-Of-UKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3214" y="-487"/>
+            <point key="canvasLocation" x="3213.5999999999999" y="-487.10644677661173"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="Bgv-5A-E8e">
@@ -195,4 +245,7 @@
             <point key="canvasLocation" x="-183.19999999999999" y="-147.07646176911544"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="100" height="100"/>
+    </resources>
 </document>
