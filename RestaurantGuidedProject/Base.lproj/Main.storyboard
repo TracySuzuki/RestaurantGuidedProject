@@ -158,6 +158,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ldq-ze-Ozv"/>
                     </view>
+                    <connections>
+                        <outlet property="addToOrderButton" destination="1c6-NR-mKD" id="pNh-nj-Ins"/>
+                        <outlet property="detailTextLabel" destination="Nvn-88-pX2" id="7gV-QL-qrM"/>
+                        <outlet property="imageView" destination="BXa-qO-I3A" id="xHH-8v-m03"/>
+                        <outlet property="priceLabel" destination="scP-00-wVk" id="Fn6-1c-f3u"/>
+                        <outlet property="titleLabel" destination="hNf-Uz-XXE" id="4Fg-sP-qwE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjT-Of-UKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
