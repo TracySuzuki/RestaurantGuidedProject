@@ -136,6 +136,9 @@
                                 <state key="normal" title="Add To Order">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToOrderButtonTapped:" destination="lEP-CM-ZYb" eventType="touchUpInside" id="nmF-Lp-RmO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

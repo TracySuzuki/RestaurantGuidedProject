@@ -22,6 +22,8 @@ class MenuItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //rounds the corners of the order button
+        addToOrderButton.layer.cornerRadius = 5.0
         updateUI()
     }
     
@@ -31,6 +33,15 @@ class MenuItemDetailViewController: UIViewController {
         detailTextLabel.text = menuItem.detailText
     }
     
-
+    //Code below adds animation expanding/contracting to button.
+    @IBAction func addToOrderButtonTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            self.addToOrderButton.transform =
+                CGAffineTransform(scaleX: 3.0, y: 3.0)
+            self.addToOrderButton.transform =
+                CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
+    }
+    
 
 }
