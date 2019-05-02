@@ -13,6 +13,9 @@ class OrderTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //the code below is for the observer for the notification. when the order is updated you'll reload the tableview so it will be the view controllers property. Now you can add items and see them on the list
+        NotificationCenter.default.addObserver(tableView, selector: #selector(UITableView.reloadData), name: MenuController.orderUpdatedNotification, object: nil)
 
     }
 
