@@ -6,11 +6,22 @@
 //  Copyright © 2019 student15. All rights reserved.
 //
 
-import Foundation
+import UIKit
 //need to request the list from the API. Packing all the n etwork code into single controller. This will reduce the amount of code in the table view controllers and simplify any future updates.
 class MenuController {
+    
     static let shared = MenuController()
+    static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
+    
     let baseURL = URL(string: "http://localhost:8090/")!
+    
+    var order = Order() {
+        didSet {
+            NotificationCenter.default.post(name: MenuController.orderUpdatedNotification, object: nil)
+        }
+    }
+   
+    
   
     //a method that has one parameter with a completion closre an array of strings
     func fetchCategories(completion: @escaping ([String]?) -> Void)

@@ -33,7 +33,7 @@ class MenuItemDetailViewController: UIViewController {
         detailTextLabel.text = menuItem.detailText
     }
     
-    //Code below adds animation expanding/contracting to button.
+    //Code below adds animation expanding/contracting to button. Still a little unsure as the verbal book said to name the physical button addToOrderButton but the book illustration shows orderButton
     @IBAction func addToOrderButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             self.addToOrderButton.transform =
@@ -41,6 +41,7 @@ class MenuItemDetailViewController: UIViewController {
             self.addToOrderButton.transform =
                 CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
+        MenuController.shared.order.menuItems.append(menuItem)
     }
     
 
