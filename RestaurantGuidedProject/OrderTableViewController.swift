@@ -14,6 +14,8 @@ class OrderTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        
         //the code below is for the observer for the notification. when the order is updated you'll reload the tableview so it will be the view controllers property. Now you can add items and see them on the list
         NotificationCenter.default.addObserver(tableView, selector: #selector(UITableView.reloadData), name: MenuController.orderUpdatedNotification, object: nil)
 
@@ -35,25 +37,20 @@ class OrderTableViewController: UITableViewController {
         cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
     }
 
-    /*
-    // Override to support conditional editing of the table view.
+    //chooses what cells are editable items from the order
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    //Executes the deletion process of the item that's selected. The badge updates automatically.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+            MenuController.shared.order.menuItems.remove(at: indexPath.row)
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+
 
     /*
     // Override to support rearranging the table view.

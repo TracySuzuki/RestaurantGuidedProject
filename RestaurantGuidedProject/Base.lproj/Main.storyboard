@@ -173,7 +173,7 @@
             </objects>
             <point key="canvasLocation" x="3213.5999999999999" y="-487.10644677661173"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Your Order-->
         <scene sceneID="Bgv-5A-E8e">
             <objects>
                 <tableViewController id="zFh-53-Sop" customClass="OrderTableViewController" customModule="RestaurantGuidedProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -212,11 +212,49 @@
                             <outlet property="delegate" destination="zFh-53-Sop" id="kxH-8Y-RgR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="4k3-Iy-oxo"/>
+                    <navigationItem key="navigationItem" title="Your Order" id="4k3-Iy-oxo">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="g1j-d4-zTA"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ew0-zU-VDp" kind="presentation" identifier="ConfirmationSegue" id="9eJ-Hs-PBj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiL-zc-aJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1708" y="190.25487256371815"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AsC-Mu-mN7">
+            <objects>
+                <viewController id="ew0-zU-VDp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CWk-It-dDI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SC-56-jH1">
+                                <rect key="frame" x="16" y="323.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsQ-OQ-RK3">
+                                <rect key="frame" x="166" y="352" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6SC-56-jH1" firstAttribute="trailing" secondItem="CWk-It-dDI" secondAttribute="trailingMargin" id="H5h-02-2Lk"/>
+                            <constraint firstItem="6SC-56-jH1" firstAttribute="centerY" secondItem="CWk-It-dDI" secondAttribute="centerY" id="e5R-wt-gBW"/>
+                            <constraint firstItem="6SC-56-jH1" firstAttribute="leading" secondItem="CWk-It-dDI" secondAttribute="leadingMargin" id="lUg-61-mGJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hwm-ma-hnV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H1O-I0-Sle" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2472.8000000000002" y="189.3553223388306"/>
         </scene>
         <!--Your Order-->
         <scene sceneID="ioI-Qb-iui">

@@ -29,6 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc func updateOrderBadge() {
+        switch MenuController.shared.order.menuItems.count {
+        case 0:
+            orderTabBarItem.badgeValue = nil
+        case let count:
+            orderTabBarItem.badgeValue = String(count)
+            
+        }
         orderTabBarItem.badgeValue =
             String(MenuController.shared.order.menuItems.count)
         
