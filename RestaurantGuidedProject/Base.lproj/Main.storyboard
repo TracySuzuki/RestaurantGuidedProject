@@ -213,7 +213,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Order" id="4k3-Iy-oxo">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="g1j-d4-zTA"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="g1j-d4-zTA">
+                            <connections>
+                                <action selector="submitTapped:" destination="zFh-53-Sop" id="tsT-4k-aW6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="ew0-zU-VDp" kind="presentation" identifier="ConfirmationSegue" id="9eJ-Hs-PBj"/>
@@ -223,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="1708" y="190.25487256371815"/>
         </scene>
-        <!--View Controller-->
+        <!--Order Confirmation View Controller-->
         <scene sceneID="AsC-Mu-mN7">
             <objects>
-                <viewController id="ew0-zU-VDp" sceneMemberID="viewController">
+                <viewController id="ew0-zU-VDp" customClass="OrderConfirmationViewController" customModule="RestaurantGuidedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CWk-It-dDI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,10 +241,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsQ-OQ-RK3">
-                                <rect key="frame" x="166" y="352" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsQ-OQ-RK3">
+                                <rect key="frame" x="160.5" y="352" width="54" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <segue destination="uw2-nm-exH" kind="unwind" identifier="DismissConfirmation" unwindAction="unwindToOrderListWithSegue:" id="48w-uH-Cd1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -248,11 +254,17 @@
                             <constraint firstItem="6SC-56-jH1" firstAttribute="trailing" secondItem="CWk-It-dDI" secondAttribute="trailingMargin" id="H5h-02-2Lk"/>
                             <constraint firstItem="6SC-56-jH1" firstAttribute="centerY" secondItem="CWk-It-dDI" secondAttribute="centerY" id="e5R-wt-gBW"/>
                             <constraint firstItem="6SC-56-jH1" firstAttribute="leading" secondItem="CWk-It-dDI" secondAttribute="leadingMargin" id="lUg-61-mGJ"/>
+                            <constraint firstItem="PsQ-OQ-RK3" firstAttribute="centerX" secondItem="hwm-ma-hnV" secondAttribute="centerX" id="sik-Mj-DwI"/>
+                            <constraint firstItem="PsQ-OQ-RK3" firstAttribute="top" secondItem="6SC-56-jH1" secondAttribute="bottom" constant="8" id="ynm-vU-ayO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hwm-ma-hnV"/>
                     </view>
+                    <connections>
+                        <outlet property="timeRemainingLabel" destination="6SC-56-jH1" id="49F-3k-b2z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1O-I0-Sle" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uw2-nm-exH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2472.8000000000002" y="189.3553223388306"/>
         </scene>
@@ -296,6 +308,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yW8-LF-fjn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="68g-Tq-WZ0">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

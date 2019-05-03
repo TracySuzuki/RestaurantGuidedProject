@@ -9,6 +9,8 @@
 import UIKit
 
 class OrderTableViewController: UITableViewController {
+    
+    var orderMinutes = 0
     //var order = Order()
 
     override func viewDidLoad() {
@@ -50,8 +52,41 @@ class OrderTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-
-
+    //Submit button's action is called when user is ready to submit order. A UIAlertController displays the orders total and asks the user if they wish to proceed. The reduce method is used to add all the menu items selected. price is then formatted. Then the user is asked to continue to uploadOrder.
+    @IBAction func submitTapped(_ sender: Any) {
+        let orderTotal = MenuController.shared.order.menuItems.reduce(0.0) {
+           (result, menuItem) -> Double in return result + menuItem.price
+        }
+        let formattedOrder = String(format: "$%.2f", orderTotal)
+        
+        let alert = UIAlertController(title: "Confirm Order", message: "You are about to submit your order with a total of \(formattedOrder)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Submit", style: .default) {
+            action in self.uploadOrder()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert,animated: true, completion: nil)
+    }
+    
+    func uploadOrder() {
+        let menuIds = MenuController.shared.order.menuItems.map
+        { $0.id }
+        MenuController.shared.submitOrder(forMenuIDs: menuIds) {
+            (minutes) in
+            DispatchQueue.main.async {
+                if let minutes = minutes {
+                    self.orderMinutes = minutes
+                    self.performSegue(withIdentifier: "ConfirmationSegue", sender: nil)
+                }
+            }
+        }
+    }
+    //With the segue pass the data which you have retrieved from the server method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ConfirmationSegue" {
+        let orderConfirmationViewController = segue.destination as! OrderConfirmationViewController
+        orderConfirmationViewController.minutes = orderMinutes
+        }
+    }
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -76,5 +111,14 @@ class OrderTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    //after the order is submitted and agreed then the code below clears it and starts over
+    @IBAction func unwindToOrderList(segue: UIStoryboardSegue) {
+        if segue.identifier == "DismissConfirmation" {
+            MenuController.shared.order.menuItems.removeAll()
+            
+        }
+    }
+    
+    
+    
 }
