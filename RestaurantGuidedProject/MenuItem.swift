@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//the struct conforms to the Codable protocol. This contructs the the data for each itme in the menu
+//the struct conforms to the Codable protocol. This contructs the the data for each item in the menu
 
 struct MenuItem: Codable {
     var id: Int

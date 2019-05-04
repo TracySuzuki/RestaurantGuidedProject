@@ -60,6 +60,21 @@ class MenuController {
         task.resume()
         
     }
+    //Requesting the right image
+    func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            if let data = data,
+                let image = UIImage(data: data) {
+                completion(image)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+    
+    
     //Method to post an order has a collection of menu item IDs, includes also an integer specifying the number of minutes the order will take to prep. For both of those the method needs 2 parameters.
     func submitOrder(forMenuIDs menuIds: [Int], completion: @escaping (Int?) -> Void) {
       let orderURL = baseURL.appendingPathComponent("order")

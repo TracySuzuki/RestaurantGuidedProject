@@ -31,6 +31,13 @@ class MenuItemDetailViewController: UIViewController {
         titleLabel.text = menuItem.name
         priceLabel.text = String(format: "$%.2f", menuItem.price)
         detailTextLabel.text = menuItem.detailText
+        MenuController.shared.fetchImage(url: menuItem.imageURL) {
+            (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        }
     }
     
     //Code below adds animation expanding/contracting to button. Still a little unsure as the verbal book said to name the physical button addToOrderButton but the book illustration shows orderButton
